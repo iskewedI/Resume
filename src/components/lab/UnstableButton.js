@@ -6,7 +6,7 @@ import CircleSVG from '../../misc/img/Circle.svg';
 const UnstableButton = ({ onClick, children }) => {
   const [clicked, setClicked] = useState(false);
   const [circleStyles, setCircleStyles] = useState({
-    width: '200px',
+    width: '800px',
     transitionDuration: 1.2,
     display: 'fixed',
   });
