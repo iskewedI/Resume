@@ -1,23 +1,31 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import { Fade } from 'react-reveal';
+import UnstableButton from './components/lab/UnstableButton';
 import './App.css';
 
 function App() {
+  const [started, setStarted] = useState(false);
+
+  const handleStart = () => setStarted(true);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div
+      className='App'
+      style={{
+        display: 'flex',
+        height: '100vh',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#333',
+      }}
+    >
+      <UnstableButton onClick={handleStart}>
+        {started && (
+          // <Fade>
+          <div style={{ backgroundColor: 'white', width: '100%' }}>XD</div>
+          // </Fade>
+        )}
+      </UnstableButton>
     </div>
   );
 }

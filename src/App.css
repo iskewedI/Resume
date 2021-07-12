@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+
+.zoom-in {
+  width: 200px;
+  position: fixed;
+  transition: width 1.5s;
+}
