@@ -7,7 +7,7 @@ const UnstableButton = ({ onClick, children }) => {
   const [clicked, setClicked] = useState(false);
   const [circleStyles, setCircleStyles] = useState({
     width: '200px',
-    transitionDuration: 1.5,
+    transitionDuration: 1.2,
     display: 'fixed',
   });
 
@@ -16,10 +16,10 @@ const UnstableButton = ({ onClick, children }) => {
 
     setTimeout(() => {
       setCircleStyles({ width: '400%' });
-      setTimeout(
-        () => setCircleStyles({ display: 'none' }),
-        circleStyles.transitionDuration * 1000
-      );
+
+      setTimeout(() => {
+        setCircleStyles({ display: 'none' });
+      }, circleStyles.transitionDuration * 1000);
     }, 50);
 
     onClick();
@@ -46,8 +46,10 @@ const UnstableButton = ({ onClick, children }) => {
           display: circleStyles.display,
           width: circleStyles.width,
           transitionDuration: circleStyles.transitionDuration,
+          zIndex: 100,
         }}
         src={CircleSVG}
+        alt=''
       />
       {children}
     </React.Fragment>

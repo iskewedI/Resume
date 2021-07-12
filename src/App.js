@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { Fade } from 'react-reveal';
 import UnstableButton from './components/lab/UnstableButton';
 import './App.css';
+import BlurryFade from './components/lab/BlurryFade';
+
+import ReactImage from './misc/img/ReactLogo.png';
 
 function App() {
   const [started, setStarted] = useState(false);
@@ -21,9 +24,12 @@ function App() {
     >
       <UnstableButton onClick={handleStart}>
         {started && (
-          // <Fade>
-          <div style={{ backgroundColor: 'white', width: '100%' }}>XD</div>
-          // </Fade>
+          <BlurryFade durationMS={700} type='ease-in-out'>
+            <div style={{ backgroundColor: 'white', width: '100%', height: '100%' }}>
+              Prueba
+              <img src={ReactImage} />
+            </div>
+          </BlurryFade>
         )}
       </UnstableButton>
     </div>
