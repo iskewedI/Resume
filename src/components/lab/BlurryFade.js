@@ -5,13 +5,14 @@ const BlurryFade = ({
   duration = 1,
   initialBlur = 8,
   type = 'cubic-bezier(1, .04, .98, .73)',
+  start = false,
 }) => {
   const [blurEffect, setBlurEffect] = useState({
     amount: initialBlur,
     triggered: false,
   });
 
-  if (!blurEffect.triggered) {
+  if (start && !blurEffect.triggered) {
     setTimeout(() => setBlurEffect({ ...blurEffect, triggered: true, amount: 0 }), 15);
   }
 

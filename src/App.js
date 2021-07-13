@@ -23,14 +23,12 @@ function App() {
       }}
     >
       <UnstableButton onClick={handleStart}>
-        {started && (
-          <BlurryFade durationMS={700} type='ease-in-out' initialBlur={15}>
-            <div style={{ backgroundColor: '#333', width: '100%', height: '100%' }}>
-              Prueba
-              <img src={ReactImage} />
-            </div>
-          </BlurryFade>
-        )}
+        <BlurryFade duration={0.7} type='ease-in-out' initialBlur={15} start={started}>
+          <div style={{ backgroundColor: '#333', width: '100%', height: '100%' }}>
+            Prueba
+            <img src={ReactImage} />
+          </div>
+        </BlurryFade>
       </UnstableButton>
     </div>
   );

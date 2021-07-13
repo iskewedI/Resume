@@ -3,10 +3,10 @@ import { Button } from '@material-ui/core';
 
 import CircleSVG from '../../misc/img/Circle.svg';
 
-const UnstableButton = ({ onClick, children }) => {
+const UnstableButton = ({ onClick, duration = 1, children }) => {
   const [clicked, setClicked] = useState(false);
   const [circleStyles, setCircleStyles] = useState({
-    width: '800px',
+    width: '300px',
     transitionDuration: 1.2,
     display: 'fixed',
   });
@@ -15,7 +15,7 @@ const UnstableButton = ({ onClick, children }) => {
     setClicked(true);
 
     setTimeout(() => {
-      setCircleStyles({ width: '400%' });
+      setCircleStyles({ width: '450%' });
 
       setTimeout(() => {
         setCircleStyles({ display: 'none' });
@@ -25,32 +25,43 @@ const UnstableButton = ({ onClick, children }) => {
     onClick();
   };
 
-  if (!clicked)
-    return (
-      <Button
-        className='zoom-in-target'
-        variant='contained'
-        color='secondary'
-        style={{ width: '200px' }}
-        onClick={handleClick}
-      >
-        Start
-      </Button>
-    );
-
   return (
     <React.Fragment>
-      <img
-        className='zoom-in'
-        style={{
-          display: circleStyles.display,
-          width: circleStyles.width,
-          transitionDuration: circleStyles.transitionDuration,
-          zIndex: 100,
-        }}
-        src={CircleSVG}
-        alt=''
-      />
+      {circleStyles.display !== 'none' && (
+        <React.Fragment>
+          <Button
+            className='zoom-in-target'
+            variant='contained'
+            color='secondary'
+            style={{
+              width: '200px',
+              position: 'absolute',
+              transition: `${duration}s filter linear, ${duration} opacity linear`,
+              filter: clicked ? 'blur(200px)' : '',
+              opacity: clicked ? 0 : 1,
+              zIndex: 99,
+              display: circleStyles.display,
+            }}
+            onClick={handleClick}
+          >
+            Start
+          </Button>
+
+          {clicked && (
+            <img
+              className='zoom-in'
+              style={{
+                width: circleStyles.width,
+                transitionDuration: circleStyles.transitionDuration,
+                zIndex: 100,
+              }}
+              src={CircleSVG}
+              alt=''
+            />
+          )}
+        </React.Fragment>
+      )}
+
       {children}
     </React.Fragment>
   );
