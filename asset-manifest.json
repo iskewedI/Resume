@@ -1,23 +1,27 @@
 {
   "files": {
     "main.css": "/Resume/static/css/main.e927e960.chunk.css",
-    "main.js": "/Resume/static/js/main.398e80c0.chunk.js",
-    "main.js.map": "/Resume/static/js/main.398e80c0.chunk.js.map",
-    "runtime-main.js": "/Resume/static/js/runtime-main.c539dbeb.js",
-    "runtime-main.js.map": "/Resume/static/js/runtime-main.c539dbeb.js.map",
-    "static/js/2.d346079e.chunk.js": "/Resume/static/js/2.d346079e.chunk.js",
-    "static/js/2.d346079e.chunk.js.map": "/Resume/static/js/2.d346079e.chunk.js.map",
-    "static/js/3.9293ab75.chunk.js": "/Resume/static/js/3.9293ab75.chunk.js",
-    "static/js/3.9293ab75.chunk.js.map": "/Resume/static/js/3.9293ab75.chunk.js.map",
+    "main.js": "/Resume/static/js/main.94f041a6.chunk.js",
+    "main.js.map": "/Resume/static/js/main.94f041a6.chunk.js.map",
+    "runtime-main.js": "/Resume/static/js/runtime-main.a8be4f5a.js",
+    "runtime-main.js.map": "/Resume/static/js/runtime-main.a8be4f5a.js.map",
+    "static/js/2.e221a647.chunk.js": "/Resume/static/js/2.e221a647.chunk.js",
+    "static/js/2.e221a647.chunk.js.map": "/Resume/static/js/2.e221a647.chunk.js.map",
+    "static/js/3.19699ec7.chunk.js": "/Resume/static/js/3.19699ec7.chunk.js",
+    "static/js/3.19699ec7.chunk.js.map": "/Resume/static/js/3.19699ec7.chunk.js.map",
     "index.html": "/Resume/index.html",
     "static/css/main.e927e960.chunk.css.map": "/Resume/static/css/main.e927e960.chunk.css.map",
-    "static/js/2.d346079e.chunk.js.LICENSE.txt": "/Resume/static/js/2.d346079e.chunk.js.LICENSE.txt",
-    "static/media/Circle.9f32f1c9.svg": "/Resume/static/media/Circle.9f32f1c9.svg"
+    "static/js/2.e221a647.chunk.js.LICENSE.txt": "/Resume/static/js/2.e221a647.chunk.js.LICENSE.txt",
+    "static/media/Circle.9f32f1c9.svg": "/Resume/static/media/Circle.9f32f1c9.svg",
+    "static/media/Loading.d0c13b3e.svg": "/Resume/static/media/Loading.d0c13b3e.svg",
+    "static/media/Moon_Texture.a2edaf85.jpg": "/Resume/static/media/Moon_Texture.a2edaf85.jpg",
+    "static/media/Normal_Texture.fd91a2fa.png": "/Resume/static/media/Normal_Texture.fd91a2fa.png",
+    "static/media/Rope_Texture.820f1510.jpg": "/Resume/static/media/Rope_Texture.820f1510.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.c539dbeb.js",
-    "static/js/2.d346079e.chunk.js",
+    "static/js/runtime-main.a8be4f5a.js",
+    "static/js/2.e221a647.chunk.js",
     "static/css/main.e927e960.chunk.css",
-    "static/js/main.398e80c0.chunk.js"
+    "static/js/main.94f041a6.chunk.js"
   ]
 }
