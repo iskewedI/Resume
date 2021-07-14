@@ -8,7 +8,6 @@ import Normal_Texture from '../../misc/img/Normal_Texture.png';
 const Rope = ({ position, onDrag }) => {
   const [ropeAttrs, setRopeAttrs] = useState({
     dragStartPosition: { mouseX: 0, mouseY: 0 },
-    position,
   });
 
   const mesh = useRef();
@@ -41,7 +40,7 @@ const Rope = ({ position, onDrag }) => {
 
   return (
     <div draggable={true} onDragEnter={handleDragEnter}>
-      <mesh position={ropeAttrs.position} ref={mesh} scale={0.5}>
+      <mesh ref={mesh} scale={0.5}>
         <boxGeometry args={[10, 2, 1]} />
         <meshStandardMaterial map={ropeMap} normalMap={normalMap} />
       </mesh>

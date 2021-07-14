@@ -1,14 +1,14 @@
 import React, { useState, Suspense } from 'react';
 import { Fade } from 'react-reveal';
 import UnstableButton from './components/lab/UnstableButton';
-import './App.css';
 import BlurryFade from './components/lab/BlurryFade';
-
 import ReactImage from './misc/img/ReactLogo.png';
-import Moon from './components/lab/Moon';
 import { Canvas } from '@react-three/fiber';
 import Rope from './components/lab/Rope';
+import Loading from './components/global/Loading';
+import MainScene from './components/scene/MainScene';
 
+import './App.css';
 function App() {
   const [started, setStarted] = useState(false);
 
@@ -18,20 +18,20 @@ function App() {
     <div
       className='App'
       style={{
-        display: 'flex',
+        // display: 'grid',
+        // gridTemplateColumns: 'repeat(3, 1fr)',
         height: '100vh',
-        alignItems: 'center',
-        justifyContent: 'center',
+        // alignItems: 'center',
+        // justifyContent: 'center',
         backgroundColor: '#333',
       }}
     >
-      <Canvas>
-        <Suspense fallback={null}>
-          <ambientLight intensity={0.5} />
-          <Moon position={[1.2, 0, 0]} />
-          {/* <Rope /> */}
-        </Suspense>
-      </Canvas>
+      <Suspense fallback={<Loading />}>
+        <Canvas>
+          <MainScene />
+        </Canvas>
+      </Suspense>
+
       {/* <UnstableButton onClick={handleStart}>
         <BlurryFade duration={0.7} type='ease-in-out' initialBlur={15} start={started}>
           <div style={{ backgroundColor: '#333', width: '100%', height: '100%' }}>
