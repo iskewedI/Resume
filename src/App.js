@@ -32,7 +32,7 @@ function App() {
         </Canvas>
       </Suspense> */}
 
-      <div>
+      <div style={{ textAlign: 'center' }}>
         <ProjectList />
       </div>
 
