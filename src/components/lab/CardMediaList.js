@@ -4,6 +4,20 @@ import { makeStyles } from '@material-ui/core/styles';
 import DirectionalArrow from './DirectionalArrow';
 
 const useStyles = makeStyles({
+  arrow: {
+    height: '50px',
+
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    margin: 'auto',
+  },
+  arrowLeft: {
+    left: 0,
+  },
+  arrowRight: {
+    right: 0,
+  },
   arrowsContainer: {
     width: '100%',
     height: '100%',
@@ -13,9 +27,12 @@ const useStyles = makeStyles({
     alignItems: 'center',
     zIndex: 100,
   },
-  arrow: {
-    height: '50px',
+  arrowContainer: {
+    width: '30%',
+    height: '100%',
+    position: 'relative',
     opacity: '.6',
+
     transition: 'opacity .15s linear',
     '&:hover': {
       opacity: '1',
@@ -49,12 +66,16 @@ const CardMediaList = ({ images = [], commonClasses, tooltip }) => {
 
   const handleImageChange = direction => {
     if (direction === 'left') {
-      if (indexActive - 1 >= 0) {
+      if (indexActive - 1 > -1) {
         setIndexActive(indexActive - 1);
+      } else {
+        setIndexActive(images.length - 1);
       }
     } else {
       if (indexActive + 1 < images.length) {
         setIndexActive(indexActive + 1);
+      } else {
+        setIndexActive(0);
       }
     }
   };
@@ -62,16 +83,24 @@ const CardMediaList = ({ images = [], commonClasses, tooltip }) => {
     <div className={classes.container}>
       {images.length > 1 && (
         <div className={classes.arrowsContainer}>
-          <DirectionalArrow
-            direction='left'
-            className={classes.arrow}
-            handleClick={() => handleImageChange('left')}
-          />
-          <DirectionalArrow
-            direction='right'
-            className={classes.arrow}
-            handleClick={() => handleImageChange('right')}
-          />
+          <div
+            className={classes.arrowContainer}
+            onClick={() => handleImageChange('left')}
+          >
+            <DirectionalArrow
+              direction='left'
+              className={`${classes.arrow} ${classes.arrowLeft}`}
+            />
+          </div>
+          <div
+            className={classes.arrowContainer}
+            onClick={() => handleImageChange('right')}
+          >
+            <DirectionalArrow
+              direction='right'
+              className={`${classes.arrow} ${classes.arrowRight}`}
+            />
+          </div>
         </div>
       )}
       <section>
