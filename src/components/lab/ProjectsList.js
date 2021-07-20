@@ -13,6 +13,8 @@ const useStyles = makeStyles({
   },
 });
 
+const normalizeName = name => name.replace(/-/g, ' ');
+
 const ProjectList = ({ isLoaded, setLoaded }) => {
   const [projects, setProjects] = useState([]);
 
@@ -20,15 +22,16 @@ const ProjectList = ({ isLoaded, setLoaded }) => {
 
   useEffect(() => {
     const fetchProjects = async () => {
-      const results = await fetch('https://api.github.com/users/iskewedi/repos');
+      const results = await fetch('https://api.github.com/users/iskewedi/repos', {
+        headers: { Accept: 'application/vnd.github.mercy-preview+json' },
+      });
 
       const body = await results.json();
 
       const mapped = body
-        .filter(project => project.description)
-        .slice(0, 6)
+        .filter(project => project.topics && project.topics.includes('show-in-resume'))
         .map(({ name, description, id, html_url, homepage }, index) => ({
-          name,
+          name: normalizeName(name),
           tooltip: `Image of ${name}`,
           imageUrl: `https://picsum.photos/500/300?random=${index}`,
           description,

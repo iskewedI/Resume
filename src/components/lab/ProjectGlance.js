@@ -24,6 +24,17 @@ const useStyles = makeStyles({
   },
 });
 
+const getValidUrl = (web, code) => {
+  if (web) {
+    if (web !== window.location.href) {
+      return web;
+    }
+  }
+  if (code) {
+    return code;
+  }
+};
+
 const ProjectGlance = ({
   images = [],
   tooltip,
@@ -39,7 +50,9 @@ const ProjectGlance = ({
       <CardActionArea>
         <CardMediaList images={images} commonClasses={classes.media} tooltip={tooltip} />
         <CardContent
-          onClick={() => siteWeb && setTimeout(() => window.open(siteWeb, '_blank'), 300)}
+          onClick={() =>
+            setTimeout(() => window.open(getValidUrl(siteWeb, siteCode), '_blank'), 300)
+          }
         >
           <Typography gutterBottom variant='h5' component='h2'>
             {name}
