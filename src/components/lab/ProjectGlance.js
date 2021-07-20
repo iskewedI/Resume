@@ -6,6 +6,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import { Button, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import CardMediaList from './CardMediaList';
 
 const useStyles = makeStyles({
   root: {
@@ -23,13 +24,13 @@ const useStyles = makeStyles({
   },
 });
 
-const ProjectGlance = ({ image, tooltip, name, description, siteUrl }) => {
+const ProjectGlance = ({ images = [], tooltip, name, description, siteUrl }) => {
   const classes = useStyles();
 
   return (
     <Card className={classes.root}>
       <CardActionArea>
-        <CardMedia className={classes.media} image={image} title={tooltip} />
+        <CardMediaList images={images} commonClasses={classes.media} tooltip={tooltip} />
         <CardContent>
           <Typography gutterBottom variant='h5' component='h2'>
             {name}

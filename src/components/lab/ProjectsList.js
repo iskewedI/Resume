@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ProjectGlance from './ProjectGlance';
 import { makeStyles } from '@material-ui/core/styles';
+import WithLoading from '../HOC/WithLoading';
 
 const useStyles = makeStyles({
   container: {
@@ -8,11 +9,11 @@ const useStyles = makeStyles({
     gap: '2rem',
     placeContent: 'center',
     flexWrap: 'wrap',
+    padding: '1rem',
   },
 });
 
-const ProjectList = () => {
-  const [loaded, setLoaded] = useState(false);
+const ProjectList = ({ isLoaded, setLoaded }) => {
   const [projects, setProjects] = useState([]);
 
   const classes = useStyles();
@@ -40,17 +41,20 @@ const ProjectList = () => {
       setLoaded(true);
     };
 
-    if (!loaded) {
+    if (!isLoaded) {
       fetchProjects();
     }
-  }, [projects, setProjects]);
+  }, [isLoaded, setLoaded, projects, setProjects]);
 
   return (
     <div className={classes.container}>
       {projects &&
         projects.map(({ imageUrl, tooltip, name, description, site }) => (
           <ProjectGlance
-            image={imageUrl}
+            images={[
+              imageUrl,
+              'https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cG90ZW50aWFsfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80',
+            ]}
             tooltip={tooltip}
             name={name}
             description={description}
@@ -61,4 +65,4 @@ const ProjectList = () => {
   );
 };
 
-export default ProjectList;
+export default WithLoading(ProjectList, 'Loading projects...');
