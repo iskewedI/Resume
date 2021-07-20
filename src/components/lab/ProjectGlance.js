@@ -24,14 +24,23 @@ const useStyles = makeStyles({
   },
 });
 
-const ProjectGlance = ({ images = [], tooltip, name, description, siteUrl }) => {
+const ProjectGlance = ({
+  images = [],
+  tooltip,
+  name,
+  description,
+  siteWeb,
+  siteCode,
+}) => {
   const classes = useStyles();
 
   return (
     <Card className={classes.root}>
       <CardActionArea>
         <CardMediaList images={images} commonClasses={classes.media} tooltip={tooltip} />
-        <CardContent>
+        <CardContent
+          onClick={() => siteWeb && setTimeout(() => window.open(siteWeb, '_blank'), 300)}
+        >
           <Typography gutterBottom variant='h5' component='h2'>
             {name}
           </Typography>
@@ -41,7 +50,7 @@ const ProjectGlance = ({ images = [], tooltip, name, description, siteUrl }) => 
         </CardContent>
       </CardActionArea>
       <CardActions className={classes.actions}>
-        <Button size='small' color='primary' href={siteUrl} target='_blank'>
+        <Button size='small' color='primary' href={siteCode} target='_blank'>
           See code
         </Button>
       </CardActions>
