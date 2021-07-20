@@ -3,7 +3,6 @@ import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
 import { Button, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import CardMediaList from './CardMediaList';
@@ -16,9 +15,6 @@ const useStyles = makeStyles({
     flexDirection: 'column',
     justifyContent: 'space-between',
   },
-  media: {
-    height: 180,
-  },
   actions: {
     justifyContent: 'center',
   },
@@ -26,6 +22,7 @@ const useStyles = makeStyles({
 
 const getValidUrl = (web, code) => {
   if (web) {
+    // In case user clicks the 'Resume' project, we send him to the code repo
     if (web !== window.location.href) {
       return web;
     }
@@ -48,7 +45,7 @@ const ProjectGlance = ({
   return (
     <Card className={classes.root}>
       <CardActionArea>
-        <CardMediaList images={images} commonClasses={classes.media} tooltip={tooltip} />
+        <CardMediaList images={images} tooltip={tooltip} />
         <CardContent
           onClick={() =>
             setTimeout(() => window.open(getValidUrl(siteWeb, siteCode), '_blank'), 300)

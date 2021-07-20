@@ -33,7 +33,7 @@ const ProjectList = ({ isLoaded, setLoaded }) => {
         .map(({ name, description, id, html_url, homepage }, index) => ({
           name: normalizeName(name),
           tooltip: `Image of ${name}`,
-          imageUrl: `https://picsum.photos/500/300?random=${index}`,
+          imageUrl: `https://picsum.photos/800/600?random=${index}`,
           description,
           id,
           siteCode: html_url,
@@ -56,7 +56,7 @@ const ProjectList = ({ isLoaded, setLoaded }) => {
           ({ imageUrl, tooltip, name, description, siteCode, siteWeb }, index) => (
             <ProjectGlance
               key={`Project-${index}`}
-              images={[imageUrl, `https://picsum.photos/500/500?random=${index + 1 * 2}`]}
+              images={[imageUrl, `https://picsum.photos/800/600?random=${index + 1 * 2}`]}
               tooltip={tooltip}
               name={name}
               description={description}

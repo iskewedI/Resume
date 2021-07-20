@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { CardMedia, Fade } from '@material-ui/core';
+import { CardMedia } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import DirectionalArrow from './DirectionalArrow';
 
 const useStyles = makeStyles({
   arrowsContainer: {
     width: '100%',
-    height: '65%',
+    height: '100%',
     position: 'absolute',
     display: 'flex',
     justifyContent: 'space-between',
@@ -14,16 +14,21 @@ const useStyles = makeStyles({
     zIndex: 100,
   },
   arrow: {
-    height: '25%',
-    opacity: '.8',
-    transition: 'opacity .1s linear',
+    height: '50px',
+    opacity: '.6',
+    transition: 'opacity .15s linear',
     '&:hover': {
       opacity: '1',
     },
   },
-  slider: {
-    position: 'relative',
+  container: {
     height: '200px',
+    position: 'relative',
+    filter: 'grayscale(.75)',
+    '&:hover': {
+      filter: 'grayscale(0)',
+    },
+    transition: '.35s filter ease',
   },
   sliderItem: {
     position: 'absolute',
@@ -54,7 +59,7 @@ const CardMediaList = ({ images = [], commonClasses, tooltip }) => {
     }
   };
   return (
-    <div>
+    <div className={classes.container}>
       {images.length > 1 && (
         <div className={classes.arrowsContainer}>
           <DirectionalArrow
@@ -69,7 +74,7 @@ const CardMediaList = ({ images = [], commonClasses, tooltip }) => {
           />
         </div>
       )}
-      <section className={classes.slider}>
+      <section>
         {images.map((image, index) => (
           <CardMedia
             key={`CardMedia-${index}`}
