@@ -1,27 +1,24 @@
 {
   "files": {
-    "main.css": "/Resume/static/css/main.e927e960.chunk.css",
-    "main.js": "/Resume/static/js/main.94f041a6.chunk.js",
-    "main.js.map": "/Resume/static/js/main.94f041a6.chunk.js.map",
-    "runtime-main.js": "/Resume/static/js/runtime-main.a8be4f5a.js",
-    "runtime-main.js.map": "/Resume/static/js/runtime-main.a8be4f5a.js.map",
-    "static/js/2.e221a647.chunk.js": "/Resume/static/js/2.e221a647.chunk.js",
-    "static/js/2.e221a647.chunk.js.map": "/Resume/static/js/2.e221a647.chunk.js.map",
-    "static/js/3.19699ec7.chunk.js": "/Resume/static/js/3.19699ec7.chunk.js",
-    "static/js/3.19699ec7.chunk.js.map": "/Resume/static/js/3.19699ec7.chunk.js.map",
+    "main.css": "/Resume/static/css/main.f9c0bef3.chunk.css",
+    "main.js": "/Resume/static/js/main.fd1b525a.chunk.js",
+    "main.js.map": "/Resume/static/js/main.fd1b525a.chunk.js.map",
+    "runtime-main.js": "/Resume/static/js/runtime-main.7d8d7a06.js",
+    "runtime-main.js.map": "/Resume/static/js/runtime-main.7d8d7a06.js.map",
+    "static/js/2.4eda5d5c.chunk.js": "/Resume/static/js/2.4eda5d5c.chunk.js",
+    "static/js/2.4eda5d5c.chunk.js.map": "/Resume/static/js/2.4eda5d5c.chunk.js.map",
+    "static/js/3.70fbe110.chunk.js": "/Resume/static/js/3.70fbe110.chunk.js",
+    "static/js/3.70fbe110.chunk.js.map": "/Resume/static/js/3.70fbe110.chunk.js.map",
     "index.html": "/Resume/index.html",
-    "static/css/main.e927e960.chunk.css.map": "/Resume/static/css/main.e927e960.chunk.css.map",
-    "static/js/2.e221a647.chunk.js.LICENSE.txt": "/Resume/static/js/2.e221a647.chunk.js.LICENSE.txt",
-    "static/media/Circle.9f32f1c9.svg": "/Resume/static/media/Circle.9f32f1c9.svg",
-    "static/media/Loading.d0c13b3e.svg": "/Resume/static/media/Loading.d0c13b3e.svg",
-    "static/media/Moon_Texture.a2edaf85.jpg": "/Resume/static/media/Moon_Texture.a2edaf85.jpg",
-    "static/media/Normal_Texture.fd91a2fa.png": "/Resume/static/media/Normal_Texture.fd91a2fa.png",
-    "static/media/Rope_Texture.820f1510.jpg": "/Resume/static/media/Rope_Texture.820f1510.jpg"
+    "static/css/main.f9c0bef3.chunk.css.map": "/Resume/static/css/main.f9c0bef3.chunk.css.map",
+    "static/js/2.4eda5d5c.chunk.js.LICENSE.txt": "/Resume/static/js/2.4eda5d5c.chunk.js.LICENSE.txt",
+    "static/media/HorizontalArrow.4a437ba8.svg": "/Resume/static/media/HorizontalArrow.4a437ba8.svg",
+    "static/media/Loading.d0c13b3e.svg": "/Resume/static/media/Loading.d0c13b3e.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.a8be4f5a.js",
-    "static/js/2.e221a647.chunk.js",
-    "static/css/main.e927e960.chunk.css",
-    "static/js/main.94f041a6.chunk.js"
+    "static/js/runtime-main.7d8d7a06.js",
+    "static/js/2.4eda5d5c.chunk.js",
+    "static/css/main.f9c0bef3.chunk.css",
+    "static/js/main.fd1b525a.chunk.js"
   ]
 }
