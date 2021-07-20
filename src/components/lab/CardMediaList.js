@@ -11,6 +11,7 @@ const useStyles = makeStyles({
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
+    zIndex: 100,
   },
   arrow: {
     height: '25%',
@@ -19,6 +20,20 @@ const useStyles = makeStyles({
     '&:hover': {
       opacity: '1',
     },
+  },
+  slider: {
+    position: 'relative',
+    height: '200px',
+  },
+  sliderItem: {
+    position: 'absolute',
+    opacity: 0,
+    width: '100%',
+    height: '100%',
+    transition: '1s ease',
+  },
+  sliderItemActive: {
+    opacity: 1,
   },
 });
 
@@ -54,13 +69,18 @@ const CardMediaList = ({ images = [], commonClasses, tooltip }) => {
           />
         </div>
       )}
-      <Fade in={true}>
-        <CardMedia
-          className={commonClasses}
-          image={images[indexActive]}
-          title={tooltip}
-        />
-      </Fade>
+      <section className={classes.slider}>
+        {images.map((image, index) => (
+          <CardMedia
+            key={`CardMedia-${index}`}
+            className={`${commonClasses} ${classes.sliderItem} ${
+              index === indexActive ? classes.sliderItemActive : ''
+            }`}
+            image={image}
+            title={tooltip}
+          />
+        ))}
+      </section>
     </div>
   );
 };

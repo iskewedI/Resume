@@ -27,11 +27,10 @@ const ProjectList = ({ isLoaded, setLoaded }) => {
       const mapped = body
         .filter(project => project.description)
         .slice(0, 6)
-        .map(({ name, description, id, html_url }) => ({
+        .map(({ name, description, id, html_url }, index) => ({
           name,
           tooltip: `Image of ${name}`,
-          imageUrl:
-            'https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png',
+          imageUrl: `https://picsum.photos/500/300?random=${index}`,
           description,
           id,
           site: html_url,
@@ -49,12 +48,10 @@ const ProjectList = ({ isLoaded, setLoaded }) => {
   return (
     <div className={classes.container}>
       {projects &&
-        projects.map(({ imageUrl, tooltip, name, description, site }) => (
+        projects.map(({ imageUrl, tooltip, name, description, site }, index) => (
           <ProjectGlance
-            images={[
-              imageUrl,
-              'https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cG90ZW50aWFsfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80',
-            ]}
+            key={`Project-${index}`}
+            images={[imageUrl, `https://picsum.photos/500/500?random=${index + 1 * 2}`]}
             tooltip={tooltip}
             name={name}
             description={description}
