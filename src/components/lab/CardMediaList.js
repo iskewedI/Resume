@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { CardMedia } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import DirectionalArrow from './DirectionalArrow';
+import { getNextItemInfiniteArray } from '../../logic/Utils';
 
 const useStyles = makeStyles({
   arrow: {
@@ -65,19 +66,9 @@ const CardMediaList = ({ images = [], commonClasses, tooltip }) => {
   const classes = useStyles();
 
   const handleImageChange = direction => {
-    if (direction === 'left') {
-      if (indexActive - 1 > -1) {
-        setIndexActive(indexActive - 1);
-      } else {
-        setIndexActive(images.length - 1);
-      }
-    } else {
-      if (indexActive + 1 < images.length) {
-        setIndexActive(indexActive + 1);
-      } else {
-        setIndexActive(0);
-      }
-    }
+    const nextImage = getNextItemInfiniteArray(indexActive, direction, images);
+
+    setIndexActive(nextImage);
   };
   return (
     <div className={classes.container}>
