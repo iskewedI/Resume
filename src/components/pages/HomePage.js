@@ -26,16 +26,18 @@ const HomePage = () => {
   const [isScrollable, setIsScrollable] = useState(true);
 
   const handleTitleScroll = evt => {
-    const { deltaX } = evt;
+    const { deltaX, deltaY } = evt;
 
-    if (deltaX == 0 || deltaX < -100 || deltaX > 100) return;
+    const movement = deltaX || deltaY;
 
-    let direction = deltaX < 0 ? 'left' : 'right';
+    if (!movement || deltaX < -100 || deltaX > 100) return;
+
+    let direction = movement < 0 ? 'left' : 'right';
 
     const nextTitle = getNextItemInfiniteArray(titleIndex, direction, titles);
 
     setIsScrollable(false);
-    setTimeout(() => setIsScrollable(true), 250);
+    setTimeout(() => setIsScrollable(true), 200);
 
     setTitleIndex(nextTitle);
   };
