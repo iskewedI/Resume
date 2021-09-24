@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ProjectGlance from './ProjectGlance';
 import { makeStyles } from '@material-ui/core/styles';
 import WithLoading from '../HOC/WithLoading';
+import { getProjects } from '../../services/projectsService';
 
 const useStyles = makeStyles({
   container: {
@@ -13,38 +14,26 @@ const useStyles = makeStyles({
   },
 });
 
-const normalizeName = name => name.replace(/-/g, ' ');
-
 const ProjectList = ({ isLoaded, setLoaded }) => {
   const [projects, setProjects] = useState([]);
+  const [hasError, setHasError] = useState(false);
 
   const classes = useStyles();
 
   useEffect(() => {
     const fetchProjects = async () => {
-      const results = await fetch('https://api.github.com/users/iskewedi/repos', {
-        headers: { Accept: 'application/vnd.github.mercy-preview+json' },
-      });
+      try {
+        const result = await getProjects();
 
-      const body = await results.json();
-
-      const mapped = body
-        .filter(project => project.topics && project.topics.includes('show-in-resume'))
-        .map(({ name, description, id, html_url, homepage }, index) => ({
-          name: normalizeName(name),
-          tooltip: `Image of ${name}`,
-          imageUrl: `https://picsum.photos/800/600?random=${index}`,
-          description,
-          id,
-          siteCode: html_url,
-          siteWeb: homepage,
-        }));
-
-      setProjects(mapped);
-      setLoaded(true);
+        setProjects(result.data);
+        setLoaded(true);
+      } catch (error) {
+        console.error(error);
+        setHasError(true);
+      }
     };
 
-    if (!isLoaded) {
+    if (!isLoaded && !hasError) {
       fetchProjects();
     }
   }, [isLoaded, setLoaded, projects, setProjects]);
@@ -53,10 +42,10 @@ const ProjectList = ({ isLoaded, setLoaded }) => {
     <div className={classes.container}>
       {projects &&
         projects.map(
-          ({ imageUrl, tooltip, name, description, siteCode, siteWeb }, index) => (
+          ({ images, tooltip, name, description, siteCode, siteWeb }, index) => (
             <ProjectGlance
               key={`Project-${index}`}
-              images={[imageUrl, `https://picsum.photos/800/600?random=${index + 1 * 2}`]}
+              images={images}
               tooltip={tooltip}
               name={name}
               description={description}
