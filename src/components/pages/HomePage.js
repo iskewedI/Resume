@@ -1,6 +1,7 @@
 import { makeStyles, Typography } from '@material-ui/core';
 import React, { useState } from 'react';
 import { getNextItemInfiniteArray } from '../../logic/Utils';
+import InProgress from '../global/InProgress';
 
 const useStyles = makeStyles({
   container: {
@@ -46,6 +47,7 @@ const HomePage = () => {
 
   return (
     <div className={classes.container}>
+      <InProgress style={{ position: 'absolute' }} />
       <Typography variant='h1' className={classes.presentationTitle}>
         Joaquín Tornello
       </Typography>
