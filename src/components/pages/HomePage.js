@@ -47,7 +47,7 @@ const HomePage = () => {
 
   return (
     <div className={classes.container}>
-      <InProgress style={{ position: 'absolute' }} />
+      <InProgress style={{ position: 'absolute', marginTop: '10px' }} />
       <Typography variant='h1' className={classes.presentationTitle}>
         Joaquín Tornello
       </Typography>
