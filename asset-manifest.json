@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Resume/static/css/main.f9c0bef3.chunk.css",
-    "main.js": "/Resume/static/js/main.e654ecec.chunk.js",
-    "main.js.map": "/Resume/static/js/main.e654ecec.chunk.js.map",
+    "main.js": "/Resume/static/js/main.0a57d239.chunk.js",
+    "main.js.map": "/Resume/static/js/main.0a57d239.chunk.js.map",
     "runtime-main.js": "/Resume/static/js/runtime-main.aeee504e.js",
     "runtime-main.js.map": "/Resume/static/js/runtime-main.aeee504e.js.map",
     "static/css/2.4be38407.chunk.css": "/Resume/static/css/2.4be38407.chunk.css",
@@ -12,6 +12,7 @@
     "static/css/2.4be38407.chunk.css.map": "/Resume/static/css/2.4be38407.chunk.css.map",
     "static/css/main.f9c0bef3.chunk.css.map": "/Resume/static/css/main.f9c0bef3.chunk.css.map",
     "static/js/2.71e05216.chunk.js.LICENSE.txt": "/Resume/static/js/2.71e05216.chunk.js.LICENSE.txt",
+    "static/media/Animated_Gear.cd3746c3.svg": "/Resume/static/media/Animated_Gear.cd3746c3.svg",
     "static/media/HorizontalArrow.4a437ba8.svg": "/Resume/static/media/HorizontalArrow.4a437ba8.svg",
     "static/media/Loading.d0c13b3e.svg": "/Resume/static/media/Loading.d0c13b3e.svg"
   },
@@ -20,6 +21,6 @@
     "static/css/2.4be38407.chunk.css",
     "static/js/2.71e05216.chunk.js",
     "static/css/main.f9c0bef3.chunk.css",
-    "static/js/main.e654ecec.chunk.js"
+    "static/js/main.0a57d239.chunk.js"
   ]
 }
