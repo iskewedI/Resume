@@ -10,6 +10,7 @@ const useStyles = makeStyles({
   image: {
     maxHeight: '600px',
     borderRadius: '2%',
+    width: '100%',
   },
 });
 
