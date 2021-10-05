@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core';
+import Value from './Value';
 
 export const COLUMN_POSITION = {
   LEFT: 0,
@@ -28,15 +29,33 @@ const InspectionProperty = ({
   title,
   values = [],
   columnPosition = COLUMN_POSITION.LEFT,
+  handleInspectionChange,
 }) => {
+  const [selectedProperty, setSelectedProperty] = useState(null);
+
+  const handleSelect = (id, title, children) => {
+    handleInspectionChange({ title, children });
+    setSelectedProperty(id);
+  };
+
+  const handleDragEnd = (title, children) => {
+    handleInspectionChange({ title, children });
+  };
+
   const classes = useStyles({ columnPosition });
 
   return (
     <div className={classes.container}>
-      <h3 className={classes.title}>{title}</h3>
+      <h3 className={`${classes.title} unselectable-text`}>{title}</h3>
       <div className={classes.valuesContainer}>
-        {values.map(value => (
-          <p>{value}</p>
+        {values.map(({ title, descriptionComponent }, i) => (
+          <Value
+            key={`Value-${i}`}
+            text={title}
+            selected={i === selectedProperty}
+            handleDragStart={() => handleSelect(i, title, descriptionComponent)}
+            handleDragEnd={() => handleDragEnd(title, descriptionComponent)}
+          />
         ))}
       </div>
     </div>

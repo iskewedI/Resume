@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { getNextItemInfiniteArray } from '../../logic/Utils';
 import InProgress from '../global/InProgress';
 import ProfileImage from '../global/ProfileImage';
-import Inspectionable from '../lab/Inspectionable';
+import Inspectionable from '../lab/Inspection/Inspectionable';
 
 const useStyles = makeStyles({
   container: {
@@ -11,9 +11,15 @@ const useStyles = makeStyles({
   },
   presentationTitle: {
     color: '#8a8b96',
+    '@media (max-width:1024px)': {
+      fontSize: '3rem',
+    },
   },
   presentationDescription: {
     color: '#8a8b96',
+    '@media (max-width:1024px)': {
+      fontSize: '1.5rem',
+    },
   },
 });
 
@@ -49,7 +55,10 @@ const HomePage = () => {
 
   return (
     <div className={classes.container}>
-      <InProgress style={{ position: 'absolute', marginTop: '10px' }} />
+      {window.matchMedia('(min-width: 768px)').matches && (
+        <InProgress style={{ position: 'absolute', marginTop: '10px' }} />
+      )}
+
       <Typography variant='h1' className={classes.presentationTitle}>
         Joaquín Tornello
       </Typography>
@@ -66,12 +75,51 @@ const HomePage = () => {
 
       <Inspectionable
         properties={[
-          { title: 'Passions', values: ['Tech', 'Music', 'Knowledge'] },
-          { title: 'Hobbies', values: ['', 'Training'] },
+          {
+            title: 'TOP Interests',
+            values: [
+              {
+                title: 'Future Tech',
+                descriptionComponent: (
+                  <div style={{ color: '#afafaf' }}>Future tech is incredible man!</div>
+                ),
+              },
+              {
+                title: 'Space Exploration/Investigation',
+                descriptionComponent: (
+                  <div style={{ color: '#afafaf' }}>
+                    Space Exploration/Investigation is incredible man!
+                  </div>
+                ),
+              },
+              {
+                title: 'AI & Machine Learning',
+                descriptionComponent: (
+                  <div style={{ color: '#afafaf' }}>
+                    AI and Machine Learning is incredible man!
+                  </div>
+                ),
+              },
+            ],
+          },
+          {
+            title: 'Hobbies',
+            values: [
+              {
+                title: 'Training',
+                descriptionComponent: (
+                  <div style={{ color: '#afafaf' }}>Trainingis incredible man!</div>
+                ),
+              },
+            ],
+          },
         ]}
       >
         <ProfileImage />
       </Inspectionable>
+      {!window.matchMedia('(min-width: 768px)').matches && (
+        <InProgress style={{ marginBottom: '30px' }} />
+      )}
     </div>
   );
 };
