@@ -13,7 +13,7 @@ const Value = ({ text, selected, handleDragStart, handleDragEnd }) => {
 
   return (
     <Draggable onStart={handleDragStart} onStop={handleDragEnd} position={{ x: 0, y: 0 }}>
-      <p className={classes.text}>{text}</p>
+      <p className={`${classes.text} unselectable-text`}>{text}</p>
     </Draggable>
   );
 };

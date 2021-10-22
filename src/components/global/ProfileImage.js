@@ -17,7 +17,15 @@ const useStyles = makeStyles({
 const ProfileImage = ({ styles = {} }) => {
   const classes = useStyles();
 
-  return <img className={classes.image} style={styles} src={Image} alt='Profile Image' />;
+  return (
+    <img
+      className={classes.image}
+      style={styles}
+      src={Image}
+      alt='Profile Image'
+      draggable={false}
+    />
+  );
 };
 
 export default ProfileImage;

@@ -108,7 +108,13 @@ const HomePage = () => {
               {
                 title: 'Training',
                 descriptionComponent: (
-                  <div style={{ color: '#afafaf' }}>Trainingis incredible man!</div>
+                  <div style={{ color: '#afafaf' }}>Training is incredible man!</div>
+                ),
+              },
+              {
+                title: 'Music',
+                descriptionComponent: (
+                  <div style={{ color: '#afafaf' }}>Music is incredible man!</div>
                 ),
               },
             ],
