@@ -13,7 +13,7 @@ const Moon = ({ position }) => {
   useFrame(() => (mesh.current.rotation.y += 0.002));
 
   return (
-    <mesh ref={mesh} scale={0.5} position={position}>
+    <mesh ref={mesh} scale={3} position={position}>
       <sphereGeometry args={[3, 32, 32]} rotateZ={20} />
       <meshStandardMaterial map={moonMap} normalMap={normalMap} />
     </mesh>

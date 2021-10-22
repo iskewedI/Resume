@@ -10,6 +10,11 @@ const useStyles = makeStyles({
     margin: '2rem',
     // To fix a problem with the drag an drop, if it is not in front of the draggable item, it cannot be dragged
     zIndex: 101,
+    display: 'grid',
+    gridTemplateColumns: '1fr',
+    gridTemplateRows: '.10fr .10fr .80fr',
+    maxHeight: '600px',
+    overflow: 'hidden',
   },
   title: {
     color: '#7daab1d4',
