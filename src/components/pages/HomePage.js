@@ -4,7 +4,6 @@ import { getNextItemInfiniteArray } from '../../logic/Utils';
 import InProgress from '../global/InProgress';
 import ProfileImage from '../global/ProfileImage';
 import Inspectionable from '../lab/Inspection/Inspectionable';
-import Rocket from '../lab/Vehicles/Rocket/Rocket';
 import Moon from '../lab/Moon';
 import { Canvas } from '@react-three/fiber';
 import GeometryLoading from '../global/GeometryLoading';
@@ -97,7 +96,6 @@ const HomePage = () => {
                       <Suspense fallback={<GeometryLoading />}>
                         <pointLight position={[10, 10, 10]} />
                         <Moon position={[0, 5, -25]} />
-                        <Rocket position={[0, -15, -25]} />
                       </Suspense>
                     </Canvas>
                   </div>
