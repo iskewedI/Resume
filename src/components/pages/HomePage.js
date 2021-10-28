@@ -1,12 +1,12 @@
 import { makeStyles, Typography } from '@material-ui/core';
-import React, { Suspense, useState } from 'react';
-import { getNextItemInfiniteArray } from '../../logic/Utils';
+import React, { Suspense } from 'react';
 import InProgress from '../global/InProgress';
 import ProfileImage from '../global/ProfileImage';
 import Inspectionable from '../lab/Inspection/Inspectionable';
 import Moon from '../lab/Moon';
 import { Canvas } from '@react-three/fiber';
 import GeometryLoading from '../global/GeometryLoading';
+import ScrollableTextList from '../lab/ScrollableTextList';
 
 const useStyles = makeStyles({
   container: {
@@ -34,26 +34,6 @@ const titles = [
 ];
 
 const HomePage = () => {
-  const [titleIndex, setTitleIndex] = useState(0);
-  const [isScrollable, setIsScrollable] = useState(true);
-
-  const handleTitleScroll = evt => {
-    const { deltaX, deltaY } = evt;
-
-    const movement = deltaX || deltaY;
-
-    if (!movement || deltaX < -100 || deltaX > 100) return;
-
-    let direction = movement < 0 ? 'left' : 'right';
-
-    const nextTitle = getNextItemInfiniteArray(titleIndex, direction, titles);
-
-    setIsScrollable(false);
-    setTimeout(() => setIsScrollable(true), 200);
-
-    setTitleIndex(nextTitle);
-  };
-
   const classes = useStyles();
 
   return (
@@ -65,16 +45,8 @@ const HomePage = () => {
       <Typography variant='h1' className={classes.presentationTitle}>
         Joaquín Tornello
       </Typography>
-      <div>
-        <Typography
-          variant='h2'
-          className={classes.presentationDescription}
-          onScroll={evt => isScrollable && handleTitleScroll(evt)}
-          onWheel={evt => isScrollable && handleTitleScroll(evt)}
-        >
-          {titles[titleIndex]}
-        </Typography>
-      </div>
+
+      <ScrollableTextList classes={classes.presentationDescription} list={titles} />
 
       <Inspectionable
         properties={[
@@ -91,7 +63,13 @@ const HomePage = () => {
                 title: 'Space Exploration/Investigation',
                 descriptionComponent: (
                   <div style={{ color: '#afafaf', maxHeight: '500px' }}>
-                    <h5>Space Exploration/Investigation is incredible man!</h5>
+                    <div style={{ padding: '1rem' }}>
+                      <h5 style={{ fontStyle: 'italic', textDecoration: '' }}>
+                        I dream with humans travelling all across the galaxies, evolving
+                        into an interstellar species.
+                      </h5>
+                    </div>
+
                     <Canvas>
                       <Suspense fallback={<GeometryLoading />}>
                         <pointLight position={[10, 10, 10]} />
