@@ -41,19 +41,17 @@ const ProjectList = ({ isLoaded, setLoaded }) => {
   return (
     <div className={classes.container}>
       {projects &&
-        projects.map(
-          ({ images, tooltip, name, description, siteCode, siteWeb }, index) => (
-            <ProjectGlance
-              key={`Project-${index}`}
-              images={images}
-              tooltip={tooltip}
-              name={name}
-              description={description}
-              siteCode={siteCode}
-              siteWeb={siteWeb}
-            />
-          )
-        )}
+        projects.map(({ images, tooltip, name, description, siteCode, siteWeb }) => (
+          <ProjectGlance
+            key={`Project-${name}`}
+            images={images}
+            tooltip={tooltip}
+            name={name}
+            description={description}
+            siteCode={siteCode}
+            siteWeb={siteWeb}
+          />
+        ))}
     </div>
   );
 };

@@ -50,7 +50,7 @@ const InspectionProperty = ({
       <div className={classes.valuesContainer}>
         {values.map(({ title, descriptionComponent }, i) => (
           <Value
-            key={`Value-${i}`}
+            key={`Value-${title}`}
             text={title}
             selected={i === selectedProperty}
             handleDragStart={() => handleSelect(i, title, descriptionComponent)}

@@ -97,7 +97,7 @@ const CardMediaList = ({ images = [], commonClasses, tooltip }) => {
       <section>
         {images.map((image, index) => (
           <CardMedia
-            key={`CardMedia-${index}`}
+            key={`CardMedia-${tooltip}`}
             className={`${commonClasses} ${classes.sliderItem} ${
               index === indexActive ? classes.sliderItemActive : ''
             }`}
