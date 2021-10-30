@@ -17,10 +17,10 @@ const App = () => {
         <Route path='/Experience'>
           <ExperiencePage />
         </Route>
-        <Route path='/Resume'>
+        <Route path='/'>
           <HomePage />
         </Route>
-        <Redirect to='/Resume' />
+        <Redirect to='/' />
       </Switch>
     </div>
   );
